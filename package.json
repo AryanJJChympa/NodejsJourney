@@ -2,6 +2,7 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "greeter.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,9 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AryanJJChympa/NodejsJourney/issues"
-  },
-  "homepage": "https://github.com/AryanJJChympa/NodejsJourney#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "chalk": "^5.4.1"
+  }
 }

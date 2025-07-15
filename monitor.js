@@ -1,5 +1,5 @@
-import { clear } from 'node:console';
-import os from 'node:os'
+import chalk from 'chalk'; //third-party
+import os from 'node:os' //inbuilt
 
 function monitor() {
     const oldCpu = os.cpus();
@@ -15,12 +15,21 @@ function monitor() {
         });
 
         console.clear();
+        console.log(chalk.bgMagentaBright(`======System Stats=====`));
+
         console.table(usage);
 
         const usedMemory = (os.totalmem() - os.freemem()) / (1024 * 1024 * 1024);
         const totalMemory = os.totalmem() / (1024 * 1024 * 1024);
 
-        console.log(`Memory used: ${usedMemory.toFixed(2)} GB / ${totalMemory.toFixed(2)} GB`);
+        console.log(
+            'Memory used: ',
+            usedMemory > 6
+            ?chalk.redBright(`Memory used: ${usedMemory.toFixed(2)} GB / ${totalMemory.toFixed(2)} GB`)
+            : chalk.greenBright(`Memory used: ${usedMemory.toFixed(2)} GB / ${totalMemory.toFixed(2)} GB`)
+        )
+
+        // console.log(`Memory used: ${usedMemory.toFixed(2)} GB / ${totalMemory.toFixed(2)} GB`);
     }, 1000);
 }
 
